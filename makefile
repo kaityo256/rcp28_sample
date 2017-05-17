@@ -1,14 +1,14 @@
 all: a.out b.out
 
+CPPFLAGS= -std=c++11 -mavx512f -mavx512er
+CC=g++
+
 a.out: test.cpp
-	icpc -std=c++11 -xMIC-AVX512 $< -o $@
+	$(CC) $(CPPFLAGS) $< -o $@
 
 b.out: test2.cpp
-	icpc -std=c++11 -xMIC-AVX512 $< -o $@
-
-test:
-	./a.out > a.txt
-	./b.out > b.txt
+	$(CC) $(CPPFLAGS) $< -o $@
 
 clean:
 	rm -f a.out b.out
+
