@@ -38,7 +38,6 @@ double out[8];
 int
 main(){
   std::mt19937 mt(1);
-  __m512d v2 = _mm512_set1_pd(2.0);
   std::uniform_real_distribution<double> ud(0.0,1.0);
   for(int i=0;i<10;i++){
     double a = ud(mt);
